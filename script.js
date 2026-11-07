@@ -4,7 +4,9 @@
     "pages/page-1.jpg",
     "pages/page-2.jpg",
     "pages/page-3.jpg",
-    "pages/page-4.jpg"
+    "pages/page-4.jpg",
+    "pages/page-5.jpg",
+    "pages/page-6.jpg"
   ];
 
   var loader = document.getElementById("loader");
@@ -17,8 +19,6 @@
   var curEl = document.getElementById("cur");
   var totalEl = document.getElementById("total");
   var dotsEl = document.getElementById("dots");
-  var music = document.getElementById("music");
-  var musicBtn = document.getElementById("musicBtn");
 
   var current = 0;
   var busy = false;
@@ -49,10 +49,8 @@
     p.src = src;
   });
 
-  // Enter = open reader and start music (browsers need a click to play audio)
   enterBtn.addEventListener("click", function () {
     loader.classList.add("hide");
-    playMusic();
   });
 
   // ---------- Dots ----------
@@ -85,7 +83,6 @@
       img.alt = "Brochure page " + (current + 1);
       img.classList.remove("out-left", "out-right");
       img.classList.add(forward ? "out-right" : "out-left");
-      // force reflow then slide in
       void img.offsetWidth;
       img.classList.remove("out-left", "out-right");
       render();
@@ -117,23 +114,6 @@
       go(dx < 0 ? current + 1 : current - 1);
     }
     startX = null;
-  });
-
-  // ---------- Music ----------
-  music.volume = 0.5;
-  function playMusic() {
-    var p = music.play();
-    if (p && p.catch) p.catch(function () { setMusicUI(false); });
-    setMusicUI(true);
-  }
-  function setMusicUI(on) {
-    musicBtn.classList.toggle("muted", !on);
-    musicBtn.classList.toggle("playing", on);
-    musicBtn.title = on ? "Music off" : "Music on";
-  }
-  musicBtn.addEventListener("click", function () {
-    if (music.paused) playMusic();
-    else { music.pause(); setMusicUI(false); }
   });
 
   render();
