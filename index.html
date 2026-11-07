@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>The Perspective Office — Brochure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <p class="loader-kicker">London · International</p>
+      <h1 class="loader-title">
+        <span>The Perspective</span>
+        <strong>Office</strong>
+      </h1>
+      <p class="loader-sub">Life &amp; Business Mentoring</p>
+      <div class="bar"><div id="barFill" class="bar-fill"></div></div>
+      <p id="loaderStatus" class="loader-status">Loading 0%</p>
+      <button id="enterBtn" class="enter-btn" type="button" disabled>Open Brochure</button>
+    </div>
+  </div>
+
+  <!-- READER -->
+  <main class="reader" id="reader">
+    <header class="topbar">
+      <div class="brand">The Perspective <b>Office</b></div>
+      <div class="tools">
+        <a class="icon-btn" href="assets/brochure.pdf" download title="Download PDF" aria-label="Download PDF">
+          <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
+        </a>
+        <button id="musicBtn" class="icon-btn" type="button" title="Music on / off" aria-label="Toggle music">
+          <svg class="ico-on" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/></svg>
+          <svg class="ico-off" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9l5 6M22 9l-5 6"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <section class="stage" id="stage">
+      <button class="nav prev" id="prevBtn" type="button" aria-label="Previous page">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+
+      <div class="page-wrap" id="pageWrap">
+        <img id="pageImg" class="page" src="pages/page-1.jpg" alt="Brochure page 1">
+      </div>
+
+      <button class="nav next" id="nextBtn" type="button" aria-label="Next page">
+        <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </section>
+
+    <footer class="bottombar">
+      <div class="dots" id="dots"></div>
+      <div class="counter"><span id="cur">1</span> / <span id="total">4</span></div>
+    </footer>
+  </main>
+
+  <audio id="music" src="assets/music.mp3" loop preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
